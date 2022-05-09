@@ -3,15 +3,13 @@ import read from './reader';
 
 export default class GameSavingLoader {
   static load() {
-    async function GameSaving() {
+    return (async () => {
       try {
         const readFunc = await read();
         return await json(readFunc);
       } catch (e) {
-        return e;
+        return console.log(e);
       }
-    }
-
-    return new GameSaving();
+    })();
   }
 }
